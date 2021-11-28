@@ -23,16 +23,16 @@ class Main {
           System.out.println("Saliendo....");
           break;
         case 1:
-        
+          
           break;
         case 2:
           tr1.Imprimir();
           break;
         case 3:
-
+          tr1.modificar();
           break;
         case 4:
-
+          tr1.borrar();
           break;
         default:
           System.out.println("Opcion no valida");
