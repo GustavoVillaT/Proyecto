@@ -7,12 +7,32 @@ class Main {
   public static void main(String[] args) {
     Scanner reader = new Scanner(System.in);
     System.out.println("Proyecto");  
+    String usuario=null,password=null;
+    int x=0;
+  while(x==0){
+    Scanner xt = new Scanner(System.in);
+    System.out.println("Ingrese su nombre de usuario: ");
+    usuario=xt.nextLine();
+      if(usuario.compareTo("RH")==0){
+        while(x==0){
+        System.out.println("Ingrese su contraseña");
+        password=xt.nextLine();
+        if(password.compareTo("1234")==0){
+          x=1;
+          System.out.println("Ingresando.....");
+        }else{
+           System.out.println("contraseña incorrecta");
+        }}
+      }else{
+          System.out.println("usuario incorrecto");
+      }
+      }
       datosPersonales tr1=new datosPersonales();
       tr1.asignarDatos();
       tr1.Direcciones();
-      int x=1;
+
   do {
-      System.out.println("0-Salir 1-Agregar 2-Leer 3-Modificar 4-Borrar");
+      System.out.println("0-Salir 1-Agregar 2-Leer 3-Modificar 4-Borrar ");
     try {
       x = reader.nextInt();
       }catch (InputMismatchException ex){
@@ -23,7 +43,7 @@ class Main {
           System.out.println("Saliendo....");
           break;
         case 1:
-          
+          tr1.Agregar();
           break;
         case 2:
           tr1.Imprimir();

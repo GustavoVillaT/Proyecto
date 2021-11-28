@@ -15,7 +15,7 @@ import java.lang.IndexOutOfBoundsException;
 public class datosPersonales{
 
 
-private int numTrabajadores=20;//numero de trabajadores
+private int numTrabajadores=300;//numero de trabajadores
 private ArrayList<Integer> edadTrabajador = new ArrayList<Integer>();
 private ArrayList<String> nombreTrabajador = new ArrayList<String>();
 private ArrayList<String> aPaternoTrabajador = new ArrayList<String>();
@@ -46,6 +46,8 @@ for(int i=0;i<numTrabajadores;i++){
   aPaternoTrabajador.add(apellidosAleatorios[indice2]);
   aMaternoTrabajador.add(apellidosAleatorios[indice3]);
 }
+Actualizar();
+System.out.println("¡Datos creados!");
 /*    //imprimir datos
 for(int i=0;i<numTrabajadores;i++){
   System.out.println("El trabajador "+nombreTrabajador.get(i)+" "+aPaternoTrabajador.get(i)+" "+aMaternoTrabajador.get(i)+" tiene una edad de "+edadTrabajador.get(i)+" años.");
@@ -88,13 +90,25 @@ public void Direcciones(){
     }catch(IOException ex){
       System.out.println(ex.getMessage());
     }
-    int index=0;
-    for(int i=0;i<3;i++){
+    for(int i=0;i<300;i++){
       String auxiliar="calle:"+calle.get(i)+" colonia:"+colonia.get(i)+" alcaldia:"+alcaldia.get(i)+" C.P:"+codigopostal.get(i);
       direccionTrabajador.add(auxiliar);
     }
-    /*for(String o:direccionTrabajador)
-      System.out.println(o);*/
+    String aux2=null;
+int random=0;
+if(numTrabajadores>300){
+  for(int i=300;i<numTrabajadores;i++){
+    random=(int)Math.floor(Math.random()*(300));
+    aux2=direccionTrabajador.get(random);
+    direccionTrabajador.add(aux2);
+  }
+}
+    int i=0;
+    for(String o:direccionTrabajador){
+      System.out.println((i+1)+")"+o);
+      i++;
+    }
+System.out.println(direccionTrabajador.get(999));
 
 }
 public void Imprimir(){
@@ -105,6 +119,7 @@ public void Imprimir(){
   for(int i=0;i<numTrabajadores;i++){
   System.out.println((i+1)+") El trabajador "+nombreTrabajador.get(i)+" "+aPaternoTrabajador.get(i)+" "+aMaternoTrabajador.get(i)+" tiene una edad de "+edadTrabajador.get(i)+" años");
 }}
+Actualizar();
 }catch(IndexOutOfBoundsException ex){
   System.out.println("No hay un trabajador registrado en ese lugar");
 }
@@ -113,6 +128,9 @@ public void borrar(){
   int x=0;
   Scanner sc = new Scanner(System.in);
    do {
+      if(x!=0){
+        System.out.println("¡Datos actualizados!");
+      }
       System.out.println("0-Salir 1-Borrar todos los trabajadores 2-Borrar intervalo de trabajadores 3-Borrar un trabajador");
     try {
       x = sc.nextInt();
@@ -194,6 +212,9 @@ public void modificar(){
       String nuevoNombre=null,nuevoApaterno=null,nuevoAmaterno=null;
       int nuevaEdad=0;
   do {
+    if(numj!=0){
+      System.out.println("¡Dato actualizado!");
+    }
     System.out.println("0-Salir 1-Modifcar nombre 2-Modificar apellidoPaterno 3-Modificar apellidoMaterno 4-Modificar edad 5-Modificar direccion");
     try {
       numj = rt.nextInt();
@@ -205,28 +226,32 @@ public void modificar(){
           System.out.println("Saliendo....");
           break;
         case 1:
-          System.out.println("Ingrese el nuevo nombre");
+          System.out.println("Ingrese el nuevo nombre: ");
           nuevoNombre=xt.nextLine();
           nombreTrabajador.set((trabajador-1),nuevoNombre);
+          Actualizar();
           break;
         case 2:
-          System.out.println("Ingrese el nuevo apellido paterno");
+          System.out.println("Ingrese el nuevo apellido paterno: ");
           nuevoApaterno=xt.nextLine();
           aPaternoTrabajador.set((trabajador-1),nuevoApaterno);
+          Actualizar();
           break;
         case 3:
-         System.out.println("Ingrese el nuevo apellido materno");
+         System.out.println("Ingrese el nuevo apellido materno: ");
          nuevoAmaterno=xt.nextLine();
          aMaternoTrabajador.set((trabajador-1),nuevoAmaterno);
+         Actualizar();
           break;
         case 4:
-          System.out.println("Ingrese la nueva edad");
+          System.out.println("Ingrese la nueva edad: ");
         try {
       nuevaEdad = rt.nextInt();
       }catch (InputMismatchException ex){
       System.out.println("¡Cuidado! Solo puedes insertar números enteros. ");
       rt.next();}
       edadTrabajador.set((trabajador-1),nuevaEdad);
+      Actualizar();
           break;
         case 5:
           System.out.println("No funciona actualmente xd");
@@ -235,8 +260,50 @@ public void modificar(){
           System.out.println("Opcion no valida");
           break;
       }
-} while(numj!=0);  
+} while(numj!=0); 
 }
+ 
+public void Agregar(){
+  Scanner rt = new Scanner(System.in);
+  Scanner xt = new Scanner(System.in);
+  String auxiliar=null;
+  int auxiliar2=0;
+  System.out.println("Agregue los datos del nuevo empleado");
+  System.out.println("nombre: ");
+  auxiliar=xt.nextLine();
+  nombreTrabajador.add(auxiliar);
+  System.out.println("Apellido paterno: ");
+  auxiliar=xt.nextLine();
+  aPaternoTrabajador.add(auxiliar);
+  System.out.println("Apellido Materno: ");
+  auxiliar=xt.nextLine();
+  aMaternoTrabajador.add(auxiliar);
+  System.out.println("edad: ");
+   try {
+      auxiliar2 = rt.nextInt();
+      }catch (InputMismatchException ex){
+      System.out.println("¡Cuidado! Solo puedes insertar números enteros. ");
+      rt.next();}
+  edadTrabajador.add(auxiliar2);
+numTrabajadores++;
+Actualizar();
+System.out.println("¡Datos actualizados!");
 
+}
+ public void Actualizar(){
+  try{
+  BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+  FileWriter fw=new FileWriter("datos.csv");
+  BufferedWriter bw = new BufferedWriter(fw);
+  PrintWriter salida= new PrintWriter(bw);
+  for(int i=0;i<numTrabajadores;i++){
+    salida.println((i+1)+","+nombreTrabajador.get(i)+","+aPaternoTrabajador.get(i)+","+aMaternoTrabajador.get(i)+","+edadTrabajador.get(i));
+  }
+  salida.close();
+  }catch(IOException ex){
+      System.out.println(ex.getMessage());
+    }
+
+}
 }
 
