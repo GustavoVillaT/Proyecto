@@ -1,3 +1,28 @@
 {
-  "files": {}
+  "files": {
+    "RegistrosProyectos.java": [
+      {
+        "id": "ffc4d920-c623-4c57-9009-448b63489be9",
+        "line": 108,
+        "version": 5938,
+        "index": 3575
+      }
+    ],
+    "borrar.csv": [
+      {
+        "id": "e256e534-f1e2-415d-ad0d-eba1013c81da",
+        "line": 1,
+        "version": 1,
+        "index": 0
+      }
+    ],
+    "numAle.java": [
+      {
+        "id": "dd5ece92-7211-434c-b381-1814eb0330b2",
+        "line": 3,
+        "version": 46,
+        "index": 3
+      }
+    ]
+  }
 }
