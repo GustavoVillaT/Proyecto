@@ -23,7 +23,7 @@ class recursosHumanos extends trabajadores{
             password=xt.nextLine();
             if(password.compareTo("1234")==0){
               x=1;
-              System.out.println("Ingresando.....");
+              System.out.println("Ingresando, por favor espere...");
             }else{
               System.out.println("contraseña incorrecta");
             }
@@ -46,7 +46,7 @@ class recursosHumanos extends trabajadores{
       reader.next();}
       switch(x){
         case 0:
-          System.out.println("Saliendo....");
+          System.out.println("Saliendo...");
         break;
         case 1:
           Agregar();  

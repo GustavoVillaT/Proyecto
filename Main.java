@@ -4,12 +4,12 @@ class Main {
     System.out.println("Proyecto");  
     RegistrosProyectos juan = new RegistrosProyectos();
     recursosHumanos RH=new recursosHumanos();
-    //int x=0;
-    //x=RH.ingreso();
-   // RH.generadorRegistros();
-   //RH.funciones(x);
-   juan.asignarProyectos2();
-    
+    int x=0;
+    x=RH.ingreso();
+   RH.generadorRegistros();
+  RH.funciones(x);
+   //RH.asignarProyectos();
+    //juan.Registros();
   }
 }
 

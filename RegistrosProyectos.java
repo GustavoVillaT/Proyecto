@@ -25,8 +25,9 @@ b. Los trabajadores deben tener al menos 1 proyecto vigente y máximo 3.*/
 private String[] historicos = {"humanidaria","caras Inocentes","apoyo comunitario","Conciencia Colectiva","Sembrando Oportunidades","ProAprende","Aprendizaje Dinamico","Agua y vida","Sovi","Hazlo Posible","ProTierra","Ecovida","Saber más","Ciencia T","Ecociencia","Mundo Tecnologico","Tecno","Cerebros Exploradores","cienbidura","viendo hacia el futuro","Ciclon","Durango","Luciernaga","Hercules","Jupiter","Laguna","Metro","Omega","Fenix","Langosta","preludio","Sputnik","Revolucion Tecnologica","Don Gato","Unidad","Conciencia","Nelson","Catarsis","Reconstruccion","Rosas"};
 private String[] vigentes = {"Internacional","ONG","Progreso","Nuevo Rumbo","Mundo Educa","Escuela Global","Cometa","Flora","Fauna","Nuevo Amanecer"};
 private ArrayList<String> Proyectos = new ArrayList<String>();
-private int numTrabajadores = 10;
 private ArrayList<String> proyectosTrabajadores= new ArrayList<String>();
+private ArrayList<String> proyectoshist = new ArrayList<String>();
+private ArrayList<String> proyectosvig = new ArrayList<String>();
 
 
 public RegistrosProyectos(){}
@@ -72,7 +73,7 @@ public void Registros(){
       }
       if(!encontrar){
         numRepetidos.add(indice);
-        Proyectos.add(vigentes[indice]);
+        proyectosvig.add(vigentes[indice]);
       }else{
         i--;
       }
@@ -94,19 +95,13 @@ public void Registros(){
       }
       if(!encontrar){
         numRepetidos.add(indice);
-        Proyectos.add(historicos[indice]);
+        proyectoshist.add(historicos[indice]);
       }else{
         i--;
       }
-    } 
-    /*int i=0;
-    for(String o: Proyectos){
-      System.out.println((i+1)+")"+o);
-      i++;
-     }*/
-  }
+    }
   
-  public void asignarProyectos2(){
+ /* public void asignarProyectos2(){
     String aux=null,aux2=null;
     Registros();
     for(int i=0;i<numTrabajadores;i++){
@@ -127,13 +122,9 @@ public void Registros(){
       System.out.println((i+1)+")"+o);
       i++;
      }
-  }
+  }*/
   
-
-
-
-  
-
 } 
+}
 
 

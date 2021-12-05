@@ -14,7 +14,7 @@ import java.util.InputMismatchException;
 import java.lang.IndexOutOfBoundsException;
 public class trabajadores{
   
-  private int numTrabajadores=85;//numero de trabajadores
+  private int numTrabajadores=850;//numero de trabajadores
   private ArrayList<Integer> edadTrabajador = new ArrayList<Integer>();
   private ArrayList<String> nombreTrabajador = new ArrayList<String>();
   private ArrayList<String> aPaternoTrabajador = new ArrayList<String>();
@@ -24,6 +24,12 @@ public class trabajadores{
   private ArrayList<String> codigopostal= new ArrayList<String>();
   private ArrayList<String> colonia = new ArrayList<String>();
   private ArrayList<String> calle = new ArrayList<String>();
+  private String[] historicos = {"Humanidaria","Caras Inocentes","Apoyo comunitario","Conciencia Colectiva","Sembrando Oportunidades","ProAprende","Aprendizaje Dinamico","Agua y vida","Sovi","Hazlo Posible","ProTierra","Ecovida","Saber más","Ciencia T","Ecociencia","Mundo Tecnologico","Tecno","Cerebros Exploradores","cienbidura","viendo hacia el futuro","Ciclon","Durango","Luciernaga","Hercules","Jupiter","Laguna","Metro","Omega","Fenix","Langosta","preludio","Sputnik","Revolucion Tecnologica","Don Gato","Unidad","Conciencia","Nelson","Catarsis","Reconstruccion","Rosas"};
+  private String[] vigentes = {"Internacional","ONG","Progreso","Nuevo Rumbo","Mundo Educa","Escuela Global","Cometa","Flora","Fauna","Nuevo Amanecer"};
+  private ArrayList<String> Proyectoshistoricos = new ArrayList<String>();
+  private ArrayList<String> Proyectosvigentes = new ArrayList<String>();
+  private ArrayList<String> proyectoshist = new ArrayList<String>();
+  private ArrayList<String> proyectosvig = new ArrayList<String>();
 
   //constructor
   public trabajadores(){}
@@ -90,8 +96,8 @@ public class trabajadores{
       System.out.println((c+1)+")"+o);
       c++;
     } */
-
- String aux2=null;
+    String aux2=null;
+    asignarProyectos();
     int random=0;
     if(numTrabajadores>300){
       for(int i=300;i<numTrabajadores;i++){
@@ -129,7 +135,7 @@ public class trabajadores{
       BufferedWriter bw = new BufferedWriter(fw);
       PrintWriter salida= new PrintWriter(bw);
       for(int i=0;i<numTrabajadores;i++){
-        salida.println((i+1)+","+nombreTrabajador.get(i)+","+aPaternoTrabajador.get(i)+","+aMaternoTrabajador.get(i)+","+edadTrabajador.get(i)+","+direccionTrabajador.get(i));
+        salida.println((i+1)+","+nombreTrabajador.get(i)+","+aPaternoTrabajador.get(i)+","+aMaternoTrabajador.get(i)+","+edadTrabajador.get(i)+","+direccionTrabajador.get(i)+","+Proyectosvigentes.get(i)+","+Proyectoshistoricos.get(i));
       }
       salida.close();
     }catch(IOException ex){
@@ -187,7 +193,7 @@ public class trabajadores{
       }else{
         for(int i=0;i<numTrabajadores;i++){
           System.out.println("------------------------------------------------------------------------------------------------------");
-          System.out.println((i+1)+") El trabajador "+nombreTrabajador.get(i)+" "+aPaternoTrabajador.get(i)+" "+aMaternoTrabajador.get(i)+" tiene una edad de "+edadTrabajador.get(i)+" años"+"\nY su dirección es: "+direccionTrabajador.get(i));
+          System.out.println((i+1)+") El trabajador "+nombreTrabajador.get(i)+" "+aPaternoTrabajador.get(i)+" "+aMaternoTrabajador.get(i)+" tiene una edad de "+edadTrabajador.get(i)+" años"+"\nSu dirección es: "+direccionTrabajador.get(i)+"\nProyectos historicos : "+Proyectoshistoricos.get(i)+" \n y los vigentes son : "+Proyectosvigentes.get(i));
         }
         System.out.println("------------------------------------------------------------------------------------------------------");      
       }
@@ -404,4 +410,90 @@ public class trabajadores{
       }
     } while (x!=0);
   }
-}
+  //////////////////////RegistrosProyectos//////////////////////////
+  public void Registros(){
+  proyectoshist.clear();
+  proyectosvig.clear();
+  int indice,indice2, j; 
+    int Min = 1;
+    int Max = 3;
+    j = (int)Math.floor(Math.random() * (Max - Min + 1)) + Min;
+    ArrayList<Integer> numRepetidos = new ArrayList<Integer>();
+    Min = 0;
+    Max = 9;
+    for(int i=0;i<j;i++){
+     indice = (int)Math.floor(Math.random() * (Max - Min + 1)) + Min;
+     boolean encontrar=false;
+      for(int k=0;k<i;k++){
+          if(numRepetidos.get(k)==indice){
+            encontrar=true;
+          }
+      }
+      if(!encontrar){
+        numRepetidos.add(indice);
+        proyectosvig.add(vigentes[indice]);
+      }else{
+        i--;
+      }
+    }
+    Min = 0;
+    Max = 39;
+    int maxProye=1;
+    int minProye=3;
+
+    j= (int)Math.floor(Math.random() * (maxProye - minProye + 1)) + minProye;
+       numRepetidos.clear();
+    for(int i=0;i<j;i++){
+     indice = (int)Math.floor(Math.random() * (Max - Min + 1)) + Min;
+         boolean encontrar=false;
+      for(int k=0;k<i;k++){
+          if(numRepetidos.get(k)==indice){
+            encontrar=true;
+          }
+      }
+      if(!encontrar){
+        numRepetidos.add(indice);
+        proyectoshist.add(historicos[indice]);
+      }else{
+        i--;
+      }
+    }
+  }
+  public void asignarProyectos(){
+    String aux=null,aux2=null;
+    Registros();
+    for(int i=0;i<numTrabajadores;i++){
+      for(int j=0;j<proyectoshist.size();j++){
+        aux=proyectoshist.get(j);
+        if(aux2==null){
+          aux2=aux;
+        }else{
+          aux2=aux2+"-"+aux;
+        }
+      }  
+    Registros();
+    Proyectoshistoricos.add(aux2);
+    aux2=null;
+    }
+    Registros();
+    for(int i=0;i<numTrabajadores;i++){
+      for(int j=0;j<proyectosvig.size();j++){
+        aux=proyectosvig.get(j);
+        if(aux2==null){
+          aux2=aux;
+        }else{
+          aux2=aux2+"-"+aux;
+        }
+      }  
+    Registros();
+    Proyectosvigentes.add(aux2);
+    aux2=null;
+    }
+  }
+  
+
+
+
+  
+
+ }
