@@ -14,14 +14,14 @@ import java.util.InputMismatchException;
 import java.lang.IndexOutOfBoundsException;
 public class trabajadores{
   
-  private int numTrabajadores=30;//numero de trabajadores
+  private int numTrabajadores=85;//numero de trabajadores
   private ArrayList<Integer> edadTrabajador = new ArrayList<Integer>();
   private ArrayList<String> nombreTrabajador = new ArrayList<String>();
   private ArrayList<String> aPaternoTrabajador = new ArrayList<String>();
   private ArrayList<String> aMaternoTrabajador = new ArrayList<String>();
   private ArrayList<String> direccionTrabajador = new ArrayList<String>();
   private ArrayList<String> alcaldia = new ArrayList<String>();
-  private ArrayList<Integer> codigopostal= new ArrayList<Integer>();
+  private ArrayList<String> codigopostal= new ArrayList<String>();
   private ArrayList<String> colonia = new ArrayList<String>();
   private ArrayList<String> calle = new ArrayList<String>();
 
@@ -51,8 +51,7 @@ public class trabajadores{
       BufferedReader br=new BufferedReader(fr);
       String linea=br.readLine();
       int x=0;
-      if(numTrabajadores<300){
-        for(int i=0;i<numTrabajadores;i++){
+        while(linea!=null){
           StringTokenizer separador =new StringTokenizer(linea,",");
           while(separador.hasMoreTokens()){  
             String aux=separador.nextToken();
@@ -66,54 +65,55 @@ public class trabajadores{
               calle.add(aux);
               count++;
             }else if(count==3){
-              codigopostal.add(Integer.parseInt(aux));
+              codigopostal.add(aux);
               count=0;
             }  
           }
           linea=br.readLine();
-        }
-      }else{
-           while(linea!=null){
-          StringTokenizer separador =new StringTokenizer(linea,",");
-          while(separador.hasMoreTokens()){  
-            String aux=separador.nextToken();
-            if(count==0){
-              alcaldia.add(aux);
-              count++;
-            }else if(count==1){
-              colonia.add(aux);
-              count++;
-            }else if(count==2){
-              calle.add(aux);
-              count++;
-            }else if(count==3){
-              codigopostal.add(Integer.parseInt(aux));
-              count=0;
-            }  
-          }
-          linea=br.readLine();
-        }
-      }     
+    }     
     br.close();
     }catch(FileNotFoundException ex){
       System.out.println(ex.getMessage());
     }catch(IOException ex){
       System.out.println(ex.getMessage());
     }
+    if(numTrabajadores<300){
+      for(int i=0;i<=(299-numTrabajadores);i++){
+            alcaldia.remove((numTrabajadores-1));
+            codigopostal.remove((numTrabajadores-1));
+            colonia.remove((numTrabajadores-1));
+            calle.remove((numTrabajadores-1));
+      }
+    }
+    /*int c=0; //imprimir las direcciones
+    for(String o:alcaldia){
+      System.out.println((c+1)+")"+o);
+      c++;
+    } */
+
+ String aux2=null;
+    int random=0;
+    if(numTrabajadores>300){
+      for(int i=300;i<numTrabajadores;i++){
+        random=(int)Math.floor(Math.random()*(300));
+        aux2=calle.get(random);
+        calle.add(aux2);
+        aux2=colonia.get(random);
+        colonia.add(aux2);
+        aux2=alcaldia.get(random);
+        alcaldia.add(aux2);
+        aux2=codigopostal.get(random);
+        codigopostal.add(aux2);
+      }
+    }
+
+
     for(int i=0;i<numTrabajadores;i++){
       String auxiliar="Calle:"+calle.get(i)+" Colonia:"+colonia.get(i)+" Alcaldia:"+alcaldia.get(i)+" C.P:"+codigopostal.get(i);
       direccionTrabajador.add(auxiliar);
     }
 
-    String aux2=null;
-    int random=0;
-    if(numTrabajadores>300){
-      for(int i=300;i<numTrabajadores;i++){
-        random=(int)Math.floor(Math.random()*(300));
-        aux2=direccionTrabajador.get(random);
-        direccionTrabajador.add(aux2);
-      }
-    }
+   
     Actualizar();
     System.out.println("¡Datos generados!");
     /*int i=0; //imprimir las direcciones
@@ -171,12 +171,8 @@ public class trabajadores{
     auxiliar=xt.nextLine();
     alcaldia.add(auxiliar);
     System.out.println("Ingresa el codigo postal: ");
-    try {
-      auxiliar2 = rt.nextInt();
-    }catch (InputMismatchException ex){
-      System.out.println("¡Cuidado! Solo puedes insertar números enteros. ");
-      rt.next();}
-    codigopostal.add(auxiliar2);
+    auxiliar=xt.nextLine();
+    codigopostal.add(auxiliar);
     auxiliar="Calle:"+calle.get(numTrabajadores)+" Colonia:"+colonia.get(numTrabajadores)+" Alcaldia:"+alcaldia.get(numTrabajadores)+" C.P:"+codigopostal.get(numTrabajadores);
     numTrabajadores++;
     System.out.println(auxiliar);
@@ -302,13 +298,8 @@ public class trabajadores{
             break;
             case 4:
                System.out.println("Ingrese el nuevo codigo postal: ");
-              try {
-                pivote2 = rt.nextInt();
-              }catch (InputMismatchException ex){
-              System.out.println("¡Cuidado! Solo puedes insertar números enteros. ");
-              rt.next();
-              }
-              codigopostal.set((trabajador-1),pivote2);
+              pivote=xt.nextLine();
+              codigopostal.set((trabajador-1),pivote);
               pivote="Calle:"+calle.get(trabajador-1)+" Colonia:"+colonia.get(trabajador-1)+" Alcaldia:"+alcaldia.get(trabajador-1)+" C.P:"+codigopostal.get(trabajador-1);
               direccionTrabajador.set((trabajador-1),pivote);
               Actualizar();
