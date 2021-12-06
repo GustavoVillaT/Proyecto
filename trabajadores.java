@@ -14,7 +14,7 @@ import java.util.InputMismatchException;
 import java.lang.IndexOutOfBoundsException;
 public class trabajadores{
   
-  private int numTrabajadores=850;//numero de trabajadores
+  private int numTrabajadores=50;//numero de trabajadores
   private ArrayList<Integer> edadTrabajador = new ArrayList<Integer>();
   private ArrayList<String> nombreTrabajador = new ArrayList<String>();
   private ArrayList<String> aPaternoTrabajador = new ArrayList<String>();
@@ -203,7 +203,7 @@ public class trabajadores{
     }
   }
   public void Modificar(){
-    Scanner rt = new Scanner(System.in);
+  Scanner rt = new Scanner(System.in);
     Scanner xt = new Scanner(System.in);
     int trabajador=0;
     System.out.println("Que empleado desea modificar?");
@@ -213,7 +213,7 @@ public class trabajadores{
       System.out.println("¡Cuidado! Solo puedes insertar números enteros. ");
       rt.next();
     }
-    System.out.println("El empleado numero: "+trabajador+" con nombre "+nombreTrabajador.get((trabajador-1))+" "+aPaternoTrabajador.get((trabajador-1))+" "+aMaternoTrabajador.get((trabajador-1))+" con "+edadTrabajador.get((trabajador-1))+" años"+"\n Y dirección: "+direccionTrabajador.get(trabajador-1));
+    System.out.println("El empleado numero: "+trabajador+" con nombre "+nombreTrabajador.get((trabajador-1))+" "+aPaternoTrabajador.get((trabajador-1))+" "+aMaternoTrabajador.get((trabajador-1))+" con "+edadTrabajador.get((trabajador-1))+" años"+"\n Y dirección: "+direccionTrabajador.get(trabajador-1)+"\n Con proyectos: \nProyectos Historicos: "+Proyectoshistoricos.get((trabajador-1))+"\nProyectos Vigentes: "+Proyectosvigentes.get((trabajador-1)));
     int numj=0;
 
     String nuevoNombre=null,nuevoApaterno=null,nuevoAmaterno=null,pivote=null;;
@@ -222,7 +222,7 @@ public class trabajadores{
       if(numj!=0){
         System.out.println("¡Dato actualizado!");
       }
-      System.out.println("0-Salir 1-Modifcar nombre 2-Modificar apellidoPaterno 3-Modificar apellidoMaterno 4-Modificar edad 5-Modificar direccion");
+      System.out.println("0-Salir 1-Modifcar nombre 2-Modificar apellidoPaterno 3-Modificar apellidoMaterno 4-Modificar edad 5-Modificar direccion 6-Modifcar proyectos");
       try {
         numj = rt.nextInt();
       }catch (InputMismatchException ex){
@@ -315,13 +315,139 @@ public class trabajadores{
             default:
               System.out.println("Opcion no valida");
             break;
-          }
-        
+            }
+      case 6:
+      int numchido=0;
+      System.out.println("¿Que desea modificar?");
+      System.out.println("0-Salir 1-Modificar proyectos vigentes 2-Modificar proyectos Historicos");
+              try{
+                numj = rt.nextInt();
+              }catch(InputMismatchException ex){
+                System.out.println("¡Cuidado! Solo puedes insertar números enteros. ");
+                rt.next();
+              }
+              switch(numj){
+                case 0:
+                  System.out.println("Saliendo...");
+                break;
+                case 1:   //Vigentes
+                  ArrayList<String> pivotechido = new ArrayList<String>();
+                  String linea=null,auxiliarchido=null;
+                  linea=Proyectosvigentes.get((trabajador-1));
+                  StringTokenizer st =new StringTokenizer(linea,"-");
+                  if(st.countTokens()!=1){
+                    while (st.hasMoreTokens()) {
+                      pivotechido.add(st.nextToken());
+                    }
+                  }else{
+                   
+                    pivotechido.add(linea);
+                  }
+                  System.out.println("0-Salir 1-Modificar un proyecto 2-Agregar un proyecto 3-Eliminar proyecto");
+                  try {
+                   numchido = rt.nextInt();
+                  }catch (InputMismatchException ex){
+                    System.out.println("¡Cuidado! Solo puedes insertar números enteros. ");
+                    rt.next();
+                  }switch(numchido){
+                    case 0: 
+                      System.out.println("Saliendo...");
+                    break;
+                    case 1:
+                      String lol="El trabajador no tiene ningun proyecto vigente";
+                      if(pivotechido.contains(lol)==false){
+                       System.out.println("El trabajador no tiene ningun proyecto que modificar");
+                      }else{
+                         System.out.println("Ingrese el nombre del proyecto a modificar");
+                        pivote=xt.nextLine();
+                        if(pivotechido.contains(pivote)){
+                          for(int i=0;i<pivotechido.size();i++){
+                            if((pivotechido.get(i)).compareTo(pivote)==0){
+                            System.out.println("Ingrese el nuevo proyecto");
+                            pivote=xt.nextLine();
+                            pivotechido.set(i,pivote);
+                            }
+                          }
+                          pivote=null;
+                          for(String o: pivotechido){
+                            if(pivote==null){
+                              pivote=o;
+                            }
+                            else{
+                              pivote=pivote+"-"+o;
+                            }
+                          }
+                          Proyectosvigentes.set((trabajador-1),pivote);
+                        }else{
+                         System.out.println("El trabajador no tiene asociado este proyecto\nSaliendo...");
+                      }
+                      }
+                    break;
+                    case 2:
+                      System.out.println("Nombre del proyecto");
+                      pivote=xt.nextLine(); 
+                      if(pivotechido.contains("El trabajador no tiene ningun proyecto vigente")){
+                        pivotechido.clear();
+                        pivotechido.add(pivote);
+                        pivote=null;
+                      }
+                      for(String o: pivotechido){
+                        if(pivote==null){
+                        pivote=o;
+                        }
+                        else{
+                        pivote=pivote+"-"+o;
+                        }
+                      }
+                      Proyectosvigentes.set((trabajador-1),pivote);
+                    break;
+
+                    case 3:
+                      System.out.println("Ingrese el nombre del proyecto a eliminar");
+                      pivote=xt.nextLine();
+                      if(pivotechido.contains(pivote)){
+                        for(int i=0;i<pivotechido.size();i++){
+                          if((pivotechido.get(i)).compareTo(pivote)==0){
+                          pivotechido.remove(i);
+                          }
+                        }
+                        pivote=null;
+                        for(String o: pivotechido){
+                          if(pivote==null){
+                            pivote=o;
+                          }
+                          else{
+                          pivote=pivote+"-"+o;
+                          }
+                        }
+                        if(pivote==null){
+                          pivote="El trabajador no tiene ningun proyecto vigente";
+                        } 
+                        Proyectosvigentes.set((trabajador-1),pivote);
+                      }else{
+                        System.out.println("El trabajador no tiene asociado este proyecto\nSaliendo...");
+                      }
+                    break;
+                    default:
+                      System.out.println("Opcion no valida");
+                    break;
+                  }
+
+                break;
+                case 2: //Historicos aun no existe
+                break; 
+                default:
+                  System.out.println("Opcion no valida");
+                break;
+              }
+
+          
+        break;
       }
-    }while(numj!=0); 
+    }while(numj!=0);   
   }
   public void Borrar(){
-    int x=0;
+ int x=0;
     Scanner sc = new Scanner(System.in);
     do {
       if(x!=0){
@@ -408,13 +534,13 @@ public class trabajadores{
           System.out.println("Opcion no valida");
         break;
       }
-    } while (x!=0);
+    } while (x!=0);   
   }
   //////////////////////RegistrosProyectos//////////////////////////
   public void Registros(){
-  proyectoshist.clear();
-  proyectosvig.clear();
-  int indice,indice2, j; 
+    proyectoshist.clear();
+    proyectosvig.clear();
+    int indice,indice2, j; 
     int Min = 1;
     int Max = 3;
     j = (int)Math.floor(Math.random() * (Max - Min + 1)) + Min;
@@ -457,7 +583,7 @@ public class trabajadores{
       }else{
         i--;
       }
-    }
+    }  
   }
   public void asignarProyectos(){
     String aux=null,aux2=null;
