@@ -354,8 +354,7 @@ public class trabajadores{
                       System.out.println("Saliendo...");
                     break;
                     case 1:
-                      String lol="El trabajador no tiene ningun proyecto vigente";
-                      if(pivotechido.contains(lol)==false){
+                      if(pivotechido.contains("El trabajador no tiene ningun proyecto vigente")){
                        System.out.println("El trabajador no tiene ningun proyecto que modificar");
                       }else{
                          System.out.println("Ingrese el nombre del proyecto a modificar");
@@ -382,6 +381,7 @@ public class trabajadores{
                          System.out.println("El trabajador no tiene asociado este proyecto\nSaliendo...");
                       }
                       }
+                      Actualizar();
                     break;
                     case 2:
                       System.out.println("Nombre del proyecto");
@@ -400,6 +400,7 @@ public class trabajadores{
                         }
                       }
                       Proyectosvigentes.set((trabajador-1),pivote);
+                      Actualizar();
                     break;
 
                     case 3:
@@ -427,12 +428,13 @@ public class trabajadores{
                       }else{
                         System.out.println("El trabajador no tiene asociado este proyecto\nSaliendo...");
                       }
+                      Actualizar();
                     break;
                     default:
                       System.out.println("Opcion no valida");
                     break;
                   }
-
+                  
                 break;
                 case 2: //Historicos aun no existe
                 break; 
