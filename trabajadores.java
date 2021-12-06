@@ -147,7 +147,7 @@ public class trabajadores{
   public void Agregar(){
     Scanner rt = new Scanner(System.in);
     Scanner xt = new Scanner(System.in);
-    String auxiliar=null;
+    String auxiliar=null,pivote=null;
     int auxiliar2=0;
     System.out.println("Agregue los datos del nuevo empleado");
     System.out.println("nombre: ");
@@ -183,6 +183,44 @@ public class trabajadores{
     numTrabajadores++;
     System.out.println(auxiliar);
     direccionTrabajador.add(auxiliar);
+    System.out.println("¿Cuantos proyectos vigentes desea agregar?");
+    try {
+      auxiliar2 = rt.nextInt();
+    }catch (InputMismatchException ex){
+      System.out.println("¡Cuidado! Solo puedes insertar números enteros. ");
+      rt.next();}
+      auxiliar=null;
+      for(int i=0;i<auxiliar2;i++){
+         System.out.println("Ingresa el proyecto "+(i+1)+":");
+         pivote=xt.nextLine();
+         if(auxiliar==null){
+           auxiliar=pivote;
+         }
+         else{
+           auxiliar=auxiliar+"-"+pivote;
+         }
+      }
+      Proyectosvigentes.add(auxiliar);
+    System.out.println("¿Cuantos proyectos historicos desea agregar?");
+    try {
+      auxiliar2 = rt.nextInt();
+    }catch (InputMismatchException ex){
+      System.out.println("¡Cuidado! Solo puedes insertar números enteros. ");
+      rt.next();}
+      auxiliar=null;
+      for(int i=0;i<auxiliar2;i++){
+         System.out.println("Ingresa el proyecto "+(i+1)+":");
+         pivote=xt.nextLine();
+         if(auxiliar==null){
+           auxiliar=pivote;
+         }
+         else{
+           auxiliar=auxiliar+"-"+pivote;
+         }
+      } 
+    Proyectoshistoricos.add(auxiliar);
+
+
     Actualizar();
     System.out.println("¡Datos actualizados!");
   }
@@ -436,7 +474,111 @@ public class trabajadores{
                   }
                   
                 break;
-                case 2: //Historicos aun no existe
+                case 2: //Historicos 
+                 ArrayList<String> pivotechipocludo = new ArrayList<String>();
+                  String linea1=null,auxiliarchipocludo=null;
+                  linea1=Proyectoshistoricos.get((trabajador-1));
+                  StringTokenizer stt =new StringTokenizer(linea1,"-");
+                  if(stt.countTokens()!=1){
+                    while (stt.hasMoreTokens()) {
+                      pivotechipocludo.add(stt.nextToken());
+                    }
+                  }else{
+                   
+                    pivotechipocludo.add(linea1);
+                  }
+                  System.out.println("0-Salir 1-Modificar un proyecto 2-Agregar un proyecto 3-Eliminar proyecto");
+                  try {
+                   numchido = rt.nextInt();
+                  }catch (InputMismatchException ex){
+                    System.out.println("¡Cuidado! Solo puedes insertar números enteros. ");
+                    rt.next();
+                  }switch(numchido){
+                    case 0: 
+                      System.out.println("Saliendo...");
+                    break;
+                    case 1:
+                      if(pivotechipocludo.contains("El trabajador no tiene ningun proyecto histórico")){
+                       System.out.println("El trabajador no tiene ningun proyecto histórico que modificar");
+                      }else{
+                         System.out.println("Ingrese el nombre del proyecto histórico a modificar");
+                        pivote=xt.nextLine();
+                        if(pivotechipocludo.contains(pivote)){
+                          for(int i=0;i<pivotechipocludo.size();i++){
+                            if((pivotechipocludo.get(i)).compareTo(pivote)==0){
+                            System.out.println("Ingrese el nuevo proyecto histórico");
+                            pivote=xt.nextLine();
+                            pivotechipocludo.set(i,pivote);
+                            }
+                          }
+                          pivote=null;
+                          for(String o: pivotechipocludo){
+                            if(pivote==null){
+                              pivote=o;
+                            }
+                            else{
+                              pivote=pivote+"-"+o;
+                            }
+                          }
+                          Proyectoshistoricos.set((trabajador-1),pivote);
+                        }else{
+                         System.out.println("El trabajador no tiene asociado este proyecto\nSaliendo...");
+                      }
+                      }
+                      Actualizar();
+                    break;
+                    case 2:
+                      System.out.println("Nombre del proyecto histórico");
+                      pivote=xt.nextLine(); 
+                      if(pivotechipocludo.contains("El trabajador no tiene ningun proyecto histórico")){
+                        pivotechipocludo.clear();
+                        pivotechipocludo.add(pivote);
+                        pivote=null;
+                      }
+                      for(String o: pivotechipocludo){
+                        if(pivote==null){
+                        pivote=o;
+                        }
+                        else{
+                        pivote=pivote+"-"+o;
+                        }
+                      }
+                      Proyectoshistoricos.set((trabajador-1),pivote);
+                      Actualizar();
+                    break;
+
+                    case 3:
+                      System.out.println("Ingrese el nombre del proyecto histórico a eliminar");
+                      pivote=xt.nextLine();
+                      if(pivotechipocludo.contains(pivote)){
+                        for(int i=0;i<pivotechipocludo.size();i++){
+                          if((pivotechipocludo.get(i)).compareTo(pivote)==0){
+                          pivotechipocludo.remove(i);
+                          }
+                        }
+                        pivote=null;
+                        for(String o: pivotechipocludo){
+                          if(pivote==null){
+                            pivote=o;
+                          }
+                          else{
+                          pivote=pivote+"-"+o;
+                          }
+                        }
+                        if(pivote==null){
+                          pivote="El trabajador no tiene ningun proyecto histórico";
+                        } 
+                        Proyectoshistoricos.set((trabajador-1),pivote);
+                      }else{
+                        System.out.println("El trabajador no tiene asociado este proyecto histórico \nSaliendo...");
+                      }
+                      Actualizar();
+                    break;
+                    default:
+                      System.out.println("Opcion no valida");
+                    break;
+                  }
+
                 break; 
                 default:
                   System.out.println("Opcion no valida");
@@ -477,6 +619,8 @@ public class trabajadores{
           codigopostal.clear();
           colonia.clear();
           calle.clear();
+          Proyectosvigentes.clear();
+          Proyectoshistoricos.clear();
           numTrabajadores=0;
           System.out.println("Imprimiendo los trabajadores....");
           Imprimir();
@@ -505,6 +649,8 @@ public class trabajadores{
             codigopostal.remove((inf-1));
             colonia.remove((inf-1));
             calle.remove((inf-1));
+            Proyectoshistoricos.remove((inf-1));
+            Proyectosvigentes.remove((inf-1));
           }
           numTrabajadores=numTrabajadores-(sup-inf)-1;
           System.out.println("Imprimiendo los trabajadores....");
@@ -529,6 +675,8 @@ public class trabajadores{
           codigopostal.remove((numT-1));
           colonia.remove((numT-1));
           calle.remove((numT-1));
+          Proyectoshistoricos.remove((numT-1));
+          Proyectosvigentes.remove((numT-1));
           numTrabajadores--;
           Imprimir();
         break;
