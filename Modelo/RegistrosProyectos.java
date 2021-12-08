@@ -1,3 +1,4 @@
+package Modelo;
 import java.util.ArrayList;
 import java.lang.String;
 import java.io.File;
@@ -14,7 +15,7 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 import java.lang.IndexOutOfBoundsException;
 import java.lang.Math;
-
+ 
 
 public class RegistrosProyectos{
   /*“Modulo generador de registro de proyectos”. La empresa hasta este punto cuenta con 50

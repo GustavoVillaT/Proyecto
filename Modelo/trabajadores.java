@@ -1,3 +1,4 @@
+package Modelo;
 import java.util.ArrayList;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,7 +14,6 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 import java.lang.IndexOutOfBoundsException;
 public class trabajadores{
-  
   private int numTrabajadores=50;//numero de trabajadores
   private ArrayList<Integer> edadTrabajador = new ArrayList<Integer>();
   private ArrayList<String> nombreTrabajador = new ArrayList<String>();
@@ -766,6 +766,7 @@ public class trabajadores{
     aux2=null;
     }
   }
+  
   
 
 

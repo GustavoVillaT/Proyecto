@@ -1,5 +1,9 @@
+package Controlador;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import Modelo.trabajadores;
+
+
 class recursosHumanos extends trabajadores{
   
 
