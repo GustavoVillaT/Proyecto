@@ -1,4 +1,3 @@
-package Modelo;
 import java.util.ArrayList;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,6 +13,7 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 import java.lang.IndexOutOfBoundsException;
 public class trabajadores{
+  
   private int numTrabajadores=50;//numero de trabajadores
   private ArrayList<Integer> edadTrabajador = new ArrayList<Integer>();
   private ArrayList<String> nombreTrabajador = new ArrayList<String>();
@@ -30,6 +30,7 @@ public class trabajadores{
   private ArrayList<String> Proyectosvigentes = new ArrayList<String>();
   private ArrayList<String> proyectoshist = new ArrayList<String>();
   private ArrayList<String> proyectosvig = new ArrayList<String>();
+    private ArrayList<Float> servicio = new ArrayList<Float>();
 
   //constructor
   public trabajadores(){}
@@ -118,6 +119,25 @@ public class trabajadores{
       String auxiliar="Calle:"+calle.get(i)+" Colonia:"+colonia.get(i)+" Alcaldia:"+alcaldia.get(i)+" C.P:"+codigopostal.get(i);
       direccionTrabajador.add(auxiliar);
     }
+    for(int i=0;i<numTrabajadores;i++){
+      String auxiliar="Calle:"+calle.get(i)+" Colonia:"+colonia.get(i)+" Alcaldia:"+alcaldia.get(i)+" C.P:"+codigopostal.get(i);
+      direccionTrabajador.add(auxiliar);
+    }
+    float random2=0;
+    for(Integer o:edadTrabajador){
+      if(o==18){
+        random2=0;
+      }else{
+        for(int i=19;i<65;i++){
+        if(o==i){
+          random2=(float)Math.floor(Math.random()*((i+1-18)));
+        }
+        }
+      }  
+      servicio.add(random2);  
+    }
+    int i=0;
+
 
    
     Actualizar();
@@ -766,7 +786,6 @@ public class trabajadores{
     aux2=null;
     }
   }
-  
   
 
 
