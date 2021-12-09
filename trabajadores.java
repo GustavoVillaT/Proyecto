@@ -24,7 +24,7 @@ public class trabajadores{
   private ArrayList<String> codigopostal= new ArrayList<String>();
   private ArrayList<String> colonia = new ArrayList<String>();
   private ArrayList<String> calle = new ArrayList<String>();
-  private String[] historicos = {"MK Ultra","Caras Inocentes","Apoyo comunitario","Conciencia Colectiva","Sembrando Oportunidades","Teletón","Aprendizaje Dinamico","Agua y vida","Sovi","Hazlo Posible","ProTierra","Ecovida","Saber más","Ciencia T","Ecociencia","Mundo Tecnologico","Rápido y Furioso","Cerebros Exploradores","cienbidura","viendo hacia el futuro","Ciclon","Durango","Luciernaga","Hercules","Jupiter","Laguna","Metro","Omega","Fenix","Langosta","preludio","Sputnik","Revolucion Tecnologica","Don Gato","Unidad","Conciencia","Nelson","Catarsis","Reconstruccion","Rosas"};
+  private String[] historicos = {"MK Ultra","Caras Inocentes","Apoyo comunitario","Conciencia Colectiva","Sembrando Oportunidades","Teletón","Aprendizaje Dinamico","Agua y vida","Sovi","Hazlo Posible","ProTierra","Piza Gate","Saber más","Ciencia T","Ecociencia","Mundo Tecnologico","Rápido y Furioso","Cerebros Exploradores","cienbidura","viendo hacia el futuro","Ciclon","Durango","Luciernaga","Hercules","Paperclip","Laguna","Metro","Omega","Fenix","Langosta","preludio","Sputnik","Revolucion Tecnologica","Don Gato","Unidad","Conciencia","Nelson","Catarsis","Reconstruccion","Rosas"};
   private String[] vigentes = {"Internacional","ONG","Progreso","Nuevo Rumbo","Mundo Educa","Escuela Global","Cometa","Flora","Fauna","Nuevo Amanecer"};
   private ArrayList<String> Proyectoshistoricos = new ArrayList<String>();
   private ArrayList<String> Proyectosvigentes = new ArrayList<String>();
