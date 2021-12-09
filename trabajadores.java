@@ -30,7 +30,7 @@ public class trabajadores{
   private ArrayList<String> Proyectosvigentes = new ArrayList<String>();
   private ArrayList<String> proyectoshist = new ArrayList<String>();
   private ArrayList<String> proyectosvig = new ArrayList<String>();
-    private ArrayList<Float> servicio = new ArrayList<Float>();
+    private ArrayList<Integer> servicio = new ArrayList<Integer>();
 
   //constructor
   public trabajadores(){}
@@ -119,18 +119,14 @@ public class trabajadores{
       String auxiliar="Calle:"+calle.get(i)+" Colonia:"+colonia.get(i)+" Alcaldia:"+alcaldia.get(i)+" C.P:"+codigopostal.get(i);
       direccionTrabajador.add(auxiliar);
     }
-    for(int i=0;i<numTrabajadores;i++){
-      String auxiliar="Calle:"+calle.get(i)+" Colonia:"+colonia.get(i)+" Alcaldia:"+alcaldia.get(i)+" C.P:"+codigopostal.get(i);
-      direccionTrabajador.add(auxiliar);
-    }
-    float random2=0;
+    int random2=0;
     for(Integer o:edadTrabajador){
       if(o==18){
         random2=0;
       }else{
         for(int i=19;i<65;i++){
         if(o==i){
-          random2=(float)Math.floor(Math.random()*((i+1-18)));
+          random2=(int)Math.floor(Math.random()*((i+1-18)));
         }
         }
       }  
@@ -155,7 +151,7 @@ public class trabajadores{
       BufferedWriter bw = new BufferedWriter(fw);
       PrintWriter salida= new PrintWriter(bw);
       for(int i=0;i<numTrabajadores;i++){
-        salida.println((i+1)+","+nombreTrabajador.get(i)+","+aPaternoTrabajador.get(i)+","+aMaternoTrabajador.get(i)+","+edadTrabajador.get(i)+","+direccionTrabajador.get(i)+","+Proyectosvigentes.get(i)+","+Proyectoshistoricos.get(i));
+        salida.println((i+1)+","+nombreTrabajador.get(i)+","+aPaternoTrabajador.get(i)+","+aMaternoTrabajador.get(i)+","+edadTrabajador.get(i)+","+servicio.get(i)+","+direccionTrabajador.get(i)+","+Proyectosvigentes.get(i)+","+Proyectoshistoricos.get(i));
       }
       salida.close();
     }catch(IOException ex){
@@ -186,6 +182,13 @@ public class trabajadores{
       System.out.println("¡Cuidado! Solo puedes insertar números enteros. ");
       rt.next();}
     edadTrabajador.add(auxiliar2);
+      System.out.println("edad servicio: ");   //Edad debe ser mayor a 18 crear restriccion
+    try {
+      auxiliar2 = rt.nextInt();
+    }catch (InputMismatchException ex){
+      System.out.println("¡Cuidado! Solo puedes insertar números enteros. ");
+      rt.next();}
+    servicio.add(auxiliar2);
     System.out.println("Direccion:");
     System.out.println("Ingresa la calle: ");
     auxiliar=xt.nextLine();
@@ -209,11 +212,11 @@ public class trabajadores{
     }catch (InputMismatchException ex){
       System.out.println("¡Cuidado! Solo puedes insertar números enteros. ");
       rt.next();}
-      auxiliar=null;
+      auxiliar="El trabajador no tiene ningun proyecto vigente";
       for(int i=0;i<auxiliar2;i++){
          System.out.println("Ingresa el proyecto "+(i+1)+":");
          pivote=xt.nextLine();
-         if(auxiliar==null){
+         if(auxiliar=="El trabajador no tiene ningun proyecto vigente"){
            auxiliar=pivote;
          }
          else{
@@ -227,11 +230,11 @@ public class trabajadores{
     }catch (InputMismatchException ex){
       System.out.println("¡Cuidado! Solo puedes insertar números enteros. ");
       rt.next();}
-      auxiliar=null;
+      auxiliar="El trabajador no tiene ningun proyecto histórico";
       for(int i=0;i<auxiliar2;i++){
          System.out.println("Ingresa el proyecto "+(i+1)+":");
          pivote=xt.nextLine();
-         if(auxiliar==null){
+         if(auxiliar=="El trabajador no tiene ningun proyecto histórico"){
            auxiliar=pivote;
          }
          else{
@@ -239,7 +242,6 @@ public class trabajadores{
          }
       } 
     Proyectoshistoricos.add(auxiliar);
-
 
     Actualizar();
     System.out.println("¡Datos actualizados!");
@@ -251,7 +253,7 @@ public class trabajadores{
       }else{
         for(int i=0;i<numTrabajadores;i++){
           System.out.println("------------------------------------------------------------------------------------------------------");
-          System.out.println((i+1)+") El trabajador "+nombreTrabajador.get(i)+" "+aPaternoTrabajador.get(i)+" "+aMaternoTrabajador.get(i)+" tiene una edad de "+edadTrabajador.get(i)+" años"+"\nSu dirección es: "+direccionTrabajador.get(i)+"\nProyectos historicos : "+Proyectoshistoricos.get(i)+" \n y los vigentes son : "+Proyectosvigentes.get(i));
+          System.out.println((i+1)+") El trabajador "+nombreTrabajador.get(i)+" "+aPaternoTrabajador.get(i)+" "+aMaternoTrabajador.get(i)+" tiene una edad de "+edadTrabajador.get(i)+" años y tiene "+servicio.get(i)+" años en la empresa\nSu dirección es: "+direccionTrabajador.get(i)+"\nProyectos historicos : "+Proyectoshistoricos.get(i)+" \n y los vigentes son : "+Proyectosvigentes.get(i));
         }
         System.out.println("------------------------------------------------------------------------------------------------------");      
       }
@@ -641,6 +643,7 @@ public class trabajadores{
           calle.clear();
           Proyectosvigentes.clear();
           Proyectoshistoricos.clear();
+          servicio.clear();
           numTrabajadores=0;
           System.out.println("Imprimiendo los trabajadores....");
           Imprimir();
@@ -671,6 +674,7 @@ public class trabajadores{
             calle.remove((inf-1));
             Proyectoshistoricos.remove((inf-1));
             Proyectosvigentes.remove((inf-1));
+            servicio.remove((inf-1));
           }
           numTrabajadores=numTrabajadores-(sup-inf)-1;
           System.out.println("Imprimiendo los trabajadores....");
@@ -697,6 +701,7 @@ public class trabajadores{
           calle.remove((numT-1));
           Proyectoshistoricos.remove((numT-1));
           Proyectosvigentes.remove((numT-1));
+          servicio.remove((numT-1));
           numTrabajadores--;
           Imprimir();
         break;
