@@ -14,7 +14,7 @@ import java.util.InputMismatchException;
 import java.lang.IndexOutOfBoundsException;
 public class trabajadores{
   private int contadorg=0;
-  private int numTrabajadores=10;//numero de trabajadores
+  private int numTrabajadores=100;//numero de trabajadores
   private ArrayList<Integer> edadTrabajador = new ArrayList<Integer>();
   private ArrayList<String> nombreTrabajador = new ArrayList<String>();
   private ArrayList<String> aPaternoTrabajador = new ArrayList<String>();
@@ -767,9 +767,14 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
     int maxProye=39;
     int minProye=0;
     maxProye=servicio.get(contadorg);
+    if(maxProye>=3){
+
+      minProye=(int)(5*maxProye)/7;
+        j=(int)Math.floor(Math.random() * (maxProye - minProye+1)) + minProye;
+    }else{
     j= (int)Math.floor(Math.random() * (maxProye - minProye+1)) + minProye;
-       numRepetidos.clear();
-    System.out.println((contadorg+1)+"El valor random es "+j+" Y el tiempo en servicio es"+(servicio.get(contadorg)));
+    } 
+    numRepetidos.clear();
     for(int i=0;i<j;i++){
      indice = (int)Math.floor(Math.random() * (Max - Min + 1)) + Min;
          boolean encontrar=false;
