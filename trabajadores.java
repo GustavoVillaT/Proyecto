@@ -14,7 +14,7 @@ import java.util.InputMismatchException;
 import java.lang.IndexOutOfBoundsException;
 public class trabajadores{
   
-  private int numTrabajadores=50;//numero de trabajadores
+  private int numTrabajadores=20;//numero de trabajadores
   private ArrayList<Integer> edadTrabajador = new ArrayList<Integer>();
   private ArrayList<String> nombreTrabajador = new ArrayList<String>();
   private ArrayList<String> aPaternoTrabajador = new ArrayList<String>();
@@ -24,7 +24,7 @@ public class trabajadores{
   private ArrayList<String> codigopostal= new ArrayList<String>();
   private ArrayList<String> colonia = new ArrayList<String>();
   private ArrayList<String> calle = new ArrayList<String>();
-  private String[] historicos = {"Humanidaria","Caras Inocentes","Apoyo comunitario","Conciencia Colectiva","Sembrando Oportunidades","ProAprende","Aprendizaje Dinamico","Agua y vida","Sovi","Hazlo Posible","ProTierra","Ecovida","Saber más","Ciencia T","Ecociencia","Mundo Tecnologico","Tecno","Cerebros Exploradores","cienbidura","viendo hacia el futuro","Ciclon","Durango","Luciernaga","Hercules","Jupiter","Laguna","Metro","Omega","Fenix","Langosta","preludio","Sputnik","Revolucion Tecnologica","Don Gato","Unidad","Conciencia","Nelson","Catarsis","Reconstruccion","Rosas"};
+  private String[] historicos = {"MK Ultra","Caras Inocentes","Apoyo comunitario","Conciencia Colectiva","Sembrando Oportunidades","Teletón","Aprendizaje Dinamico","Agua y vida","Sovi","Hazlo Posible","ProTierra","Ecovida","Saber más","Ciencia T","Ecociencia","Mundo Tecnologico","Rápido y Furioso","Cerebros Exploradores","cienbidura","viendo hacia el futuro","Ciclon","Durango","Luciernaga","Hercules","Jupiter","Laguna","Metro","Omega","Fenix","Langosta","preludio","Sputnik","Revolucion Tecnologica","Don Gato","Unidad","Conciencia","Nelson","Catarsis","Reconstruccion","Rosas"};
   private String[] vigentes = {"Internacional","ONG","Progreso","Nuevo Rumbo","Mundo Educa","Escuela Global","Cometa","Flora","Fauna","Nuevo Amanecer"};
   private ArrayList<String> Proyectoshistoricos = new ArrayList<String>();
   private ArrayList<String> Proyectosvigentes = new ArrayList<String>();
@@ -45,8 +45,8 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
     int edadMaxima = 65;
     for(int i=0;i<numTrabajadores;i++){
       indice=(int)Math.floor(Math.random()*(nombresAleatorios.length)); 
-      indice2=(int)Math.floor(Math.random()*(nombresAleatorios.length));
-      indice3=(int)Math.floor(Math.random()*(nombresAleatorios.length));
+      indice2=(int)Math.floor(Math.random()*(apellidosAleatorios.length));
+      indice3=(int)Math.floor(Math.random()*(apellidosAleatorios.length));
       edadTrabajador.add((int)Math.floor(Math.random()*(edadMaxima-edadMinima+1)+edadMinima));
       nombreTrabajador.add(nombresAleatorios[indice]);
       aPaternoTrabajador.add(apellidosAleatorios[indice2]);
@@ -213,6 +213,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
     }catch (InputMismatchException ex){
       System.out.println("¡Cuidado! Solo puedes insertar números enteros. ");
       rt.next();}
+      vigentesConteo.add(auxiliar2);
       auxiliar="El trabajador no tiene ningun proyecto vigente";
       for(int i=0;i<auxiliar2;i++){
          System.out.println("Ingresa el proyecto "+(i+1)+":");
@@ -231,6 +232,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
     }catch (InputMismatchException ex){
       System.out.println("¡Cuidado! Solo puedes insertar números enteros. ");
       rt.next();}
+      historicosConteo.add(auxiliar2);
       auxiliar="El trabajador no tiene ningun proyecto histórico";
       for(int i=0;i<auxiliar2;i++){
          System.out.println("Ingresa el proyecto "+(i+1)+":");
@@ -254,7 +256,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
       }else{
         for(int i=0;i<numTrabajadores;i++){
           System.out.println("------------------------------------------------------------------------------------------------------");
-          System.out.println((i+1)+") El trabajador "+nombreTrabajador.get(i)+" "+aPaternoTrabajador.get(i)+" "+aMaternoTrabajador.get(i)+" tiene una edad de "+edadTrabajador.get(i)+" años y tiene "+servicio.get(i)+" años en la empresa\nSu dirección es: "+direccionTrabajador.get(i)+"\nProyectos historicos : "+Proyectoshistoricos.get(i)+" \n y los vigentes son : "+Proyectosvigentes.get(i));
+          System.out.println((i+1)+") El trabajador "+nombreTrabajador.get(i)+" "+aPaternoTrabajador.get(i)+" "+aMaternoTrabajador.get(i)+" tiene una edad de "+edadTrabajador.get(i)+" años y tiene "+servicio.get(i)+" años en la empresa\nSu dirección es: "+direccionTrabajador.get(i)+"\nProyectos historicos ("+historicosConteo.get(i)+"): "+Proyectoshistoricos.get(i)+" \n y los vigentes son ("+vigentesConteo.get(i)+"): "+Proyectosvigentes.get(i));
         }
         System.out.println("------------------------------------------------------------------------------------------------------");      
       }
@@ -656,6 +658,8 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
           Proyectosvigentes.clear();
           Proyectoshistoricos.clear();
           servicio.clear();
+          historicosConteo.clear();
+          vigentesConteo.clear();
           numTrabajadores=0;
           System.out.println("Imprimiendo los trabajadores....");
           Imprimir();
@@ -687,6 +691,8 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
             Proyectoshistoricos.remove((inf-1));
             Proyectosvigentes.remove((inf-1));
             servicio.remove((inf-1));
+            vigentesConteo.remove((inf-1));
+            historicosConteo.remove((inf-1));
           }
           numTrabajadores=numTrabajadores-(sup-inf)-1;
           System.out.println("Imprimiendo los trabajadores....");
@@ -714,6 +720,8 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
           Proyectoshistoricos.remove((numT-1));
           Proyectosvigentes.remove((numT-1));
           servicio.remove((numT-1));
+          vigentesConteo.remove((numT-1));
+          historicosConteo.remove((numT-1));
           numTrabajadores--;
           Imprimir();
         break;
@@ -751,7 +759,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
     }
     Min = 0;
     Max = 39;
-    int maxProye=39;
+    int maxProye=40;
     int minProye=1;
 
     j= (int)Math.floor(Math.random() * (maxProye - minProye + 1)) + minProye;
