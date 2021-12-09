@@ -14,7 +14,7 @@ import java.util.InputMismatchException;
 import java.lang.IndexOutOfBoundsException;
 public class trabajadores{
   
-  private int numTrabajadores=20;//numero de trabajadores
+  private int numTrabajadores=300;//numero de trabajadores
   private ArrayList<Integer> edadTrabajador = new ArrayList<Integer>();
   private ArrayList<String> nombreTrabajador = new ArrayList<String>();
   private ArrayList<String> aPaternoTrabajador = new ArrayList<String>();
@@ -24,8 +24,8 @@ public class trabajadores{
   private ArrayList<String> codigopostal= new ArrayList<String>();
   private ArrayList<String> colonia = new ArrayList<String>();
   private ArrayList<String> calle = new ArrayList<String>();
-  private String[] historicos = {"MK Ultra","Caras Inocentes","Apoyo comunitario","Conciencia Colectiva","Sembrando Oportunidades","Teletón","Aprendizaje Dinamico","Agua y vida","Sovi","Hazlo Posible","ProTierra","Piza Gate","Saber más","Ciencia T","Ecociencia","Mundo Tecnologico","Rápido y Furioso","Cerebros Exploradores","cienbidura","viendo hacia el futuro","Ciclon","Durango","Luciernaga","Hercules","Paperclip","Laguna","Metro","Omega","Fenix","Langosta","preludio","Sputnik","Revolucion Tecnologica","Don Gato","Unidad","Conciencia","Nelson","Catarsis","Reconstruccion","Rosas"};
-  private String[] vigentes = {"Internacional","ONG","Progreso","Nuevo Rumbo","Mundo Educa","Escuela Global","Cometa","Flora","Fauna","Nuevo Amanecer"};
+  private String[] historicos = {"MK Ultra","Caras Inocentes","Apoyo comunitario","Conciencia Colectiva","Sembrando Oportunidades","Teletón","Aprendizaje Dinamico","Pureza","Lolita Flight","Hazlo Posible","ProTierra","Piza Gate","Saber más","Ciencia T","Gashlighting","Mundo Tecnologico","Rápido y Furioso","Cerebros Exploradores","Lavado de dinero","viendo hacia el futuro","CEMEX","TerraMar","Luciernaga","La Raza Cósmica","Paperclip","Laguna","Metro","Gashlighting","Viaje en el tiempo","Langosta","Sionismo","Sputnik","Revolucion Tecnologica","Don Gato","Unidad","MAGA","Clonación","Catarsis","Reconstruccion","Club Penguin"};
+  private String[] vigentes = {"Internacional","ONG","Adrenocromo","Nuevo Rumbo","Mundo Educa","Escuela Global","Cometa","Flora","Fauna","Nuevo Amanecer"};
   private ArrayList<String> Proyectoshistoricos = new ArrayList<String>();
   private ArrayList<String> Proyectosvigentes = new ArrayList<String>();
   private ArrayList<String> proyectoshist = new ArrayList<String>();
@@ -39,7 +39,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
   //metodos
   public void generadorRegistros(){
     String[] nombresAleatorios = {"Marisol", "Rodrigo", "Anastasio", "Annie","Jose","Marco","Pedro","Luis","Marta","Frida","Francisco", "Ramon","Lorena","Matias","Jordan","Sergio","Saul","Samantha","Miguel","Martin","Antonela","Federico","Angel","Clara","Daniela", "Jesica", "Enrique", "Mateo", "Leonardo", "Rafael","Adrián", "Sofia","Luis","Enrique","Bastian","Sebastian","Gabriel","Alejandro", "Nepamuceno", "Roque", "Grasiela","Kytzia"};
-    String[] apellidosAleatorios={"Villa","Rodríguez", "Martínez", "Hernández", "López", "González", "Pérez","Sánchez", "Ramírez", "Torres", "Flores", "Rivera","Gómez", "Díaz", "Reyes", "Cruz", "Morales", "Ortiz", "Gutiérrez","Smith","Johnson", "Williams", "Morrissey", "Hazel", "West", "Yañes", "Rourke", "Joyce", "Brown", "Jones", "Miller", "Davis", "Byrne", "Wilkins", "Michaels", "Anderson", "O'Brien", "Yorke", "Greenwood", "Jackson", "Quintero", "Weinstein", "Escañuela", "Vázquez", "Varela", "Skywalker", "García", "Rodríguez", "Wilson", "Spilberg", "Sumner", "Curtis", "Rosillo", "Stalin", "Mao", "Xu", "Rickles"};
+    String[] apellidosAleatorios={"Villa","Rodríguez", "Martínez", "Hernández", "López", "González", "Pérez","Sánchez", "Ramírez", "Torres", "Flores", "Rivera","Gómez", "Díaz", "Kardashian", "Cruz", "Morales", "Ortiz", "Gutiérrez","Smith","Johnson", "Williams", "Morrissey", "Hazel", "West", "Yañes", "Rourke", "Joyce", "Brown", "Jones", "Miller", "Davis", "Byrne", "Wilkins", "Michaels", "Anderson", "O'Brien", "Yorke", "Greenwood", "Jackson", "Quintero", "Weinstein", "Escañuela", "Vázquez", "Varela", "Skywalker", "García", "Rodríguez", "Wilson", "Spilberg", "","Sumner", "Curtis", "Rosillo", "Stalin", "Mao", "Xu", "Rickles", "Reyes"};
     int indice,indice2,indice3;
     int edadMinima = 18;
     int edadMaxima = 65;
@@ -440,6 +440,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
                             }
                           }
                           Proyectosvigentes.set((trabajador-1),pivote);
+                          
                         }else{
                          System.out.println("El trabajador no tiene asociado este proyecto\nSaliendo...");
                       }
@@ -463,6 +464,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
                         }
                       }
                       Proyectosvigentes.set((trabajador-1),pivote);
+                      vigentesConteo.set((trabajador-1),(vigentesConteo.get(trabajador-1)+1));
                       Actualizar();
                     break;
 
@@ -488,6 +490,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
                           pivote="El trabajador no tiene ningun proyecto vigente";
                         } 
                         Proyectosvigentes.set((trabajador-1),pivote);
+                        vigentesConteo.set((trabajador-1),(vigentesConteo.get(trabajador-1)-1));
                       }else{
                         System.out.println("El trabajador no tiene asociado este proyecto\nSaliendo...");
                       }
@@ -569,6 +572,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
                         }
                       }
                       Proyectoshistoricos.set((trabajador-1),pivote);
+                      historicosConteo.set((trabajador-1),(historicosConteo.get(trabajador-1)+1));
                       Actualizar();
                     break;
 
@@ -594,6 +598,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
                           pivote="El trabajador no tiene ningun proyecto histórico";
                         } 
                         Proyectoshistoricos.set((trabajador-1),pivote);
+                        historicosConteo.set((trabajador-1),(historicosConteo.get(trabajador-1)-1));
                       }else{
                         System.out.println("El trabajador no tiene asociado este proyecto histórico \nSaliendo...");
                       }
