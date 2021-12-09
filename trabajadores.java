@@ -13,8 +13,8 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 import java.lang.IndexOutOfBoundsException;
 public class trabajadores{
-  
-  private int numTrabajadores=300;//numero de trabajadores
+  private int contadorg=0;
+  private int numTrabajadores=10;//numero de trabajadores
   private ArrayList<Integer> edadTrabajador = new ArrayList<Integer>();
   private ArrayList<String> nombreTrabajador = new ArrayList<String>();
   private ArrayList<String> aPaternoTrabajador = new ArrayList<String>();
@@ -99,7 +99,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
       c++;
     } */
     String aux2=null;
-    asignarProyectos();
+   
     int random=0;
     if(numTrabajadores>300){
       for(int i=300;i<numTrabajadores;i++){
@@ -133,7 +133,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
       }  
       servicio.add(random2);  
     }
-    int i=0;
+     asignarProyectos();
 
 
    
@@ -764,11 +764,12 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
     }
     Min = 0;
     Max = 39;
-    int maxProye=40;
-    int minProye=1;
-
-    j= (int)Math.floor(Math.random() * (maxProye - minProye + 1)) + minProye;
+    int maxProye=39;
+    int minProye=0;
+    maxProye=servicio.get(contadorg);
+    j= (int)Math.floor(Math.random() * (maxProye - minProye+1)) + minProye;
        numRepetidos.clear();
+    System.out.println((contadorg+1)+"El valor random es "+j+" Y el tiempo en servicio es"+(servicio.get(contadorg)));
     for(int i=0;i<j;i++){
      indice = (int)Math.floor(Math.random() * (Max - Min + 1)) + Min;
          boolean encontrar=false;
@@ -787,8 +788,10 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
   }
   public void asignarProyectos(){
     String aux=null,aux2=null;
-    Registros();
+    
     for(int i=0;i<numTrabajadores;i++){
+      contadorg=i;
+      Registros();
       historicosConteo.add(proyectoshist.size());
       for(int j=0;j<proyectoshist.size();j++){
         aux=proyectoshist.get(j);
@@ -797,10 +800,14 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
         }else{
           aux2=aux2+"-"+aux;
         }
-      }  
-    Registros();
-    Proyectoshistoricos.add(aux2);
+      }
+      if(proyectoshist.size()==0){
+        Proyectoshistoricos.add("El trabajador no tiene ningun proyecto histórico");
+      }else{  
+    //Registros();
+    Proyectoshistoricos.add(aux2);}
     aux2=null;
+    
     }
     Registros();
     for(int i=0;i<numTrabajadores;i++){
@@ -825,3 +832,4 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
   
 
  }
+ 
