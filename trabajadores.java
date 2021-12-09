@@ -138,7 +138,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
 
    
     Actualizar();
-    System.out.println("¡Datos generados!");
+    System.out.println("\n¡Datos generados!");
     /*int i=0; //imprimir las direcciones
     for(String o:direccionTrabajador){
       System.out.println((i+1)+")"+o);
@@ -166,8 +166,8 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
     Scanner xt = new Scanner(System.in);
     String auxiliar=null,pivote=null;
     int auxiliar2=0;
-    System.out.println("Agregue los datos del nuevo empleado");
-    System.out.println("nombre: ");
+    System.out.println("\nAgregue los datos del nuevo empleado");
+    System.out.println("\nNombre: ");
     auxiliar=xt.nextLine();
     nombreTrabajador.add(auxiliar);
     System.out.println("Apellido paterno: ");
@@ -176,38 +176,38 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
     System.out.println("Apellido Materno: ");
     auxiliar=xt.nextLine();
     aMaternoTrabajador.add(auxiliar);
-    System.out.println("edad: ");   //Edad debe ser mayor a 18 crear restriccion
+    System.out.println("Edad del trabajador: ");   //Edad debe ser mayor a 18 crear restriccion
     try {
       auxiliar2 = rt.nextInt();
     }catch (InputMismatchException ex){
       System.out.println("¡Cuidado! Solo puedes insertar números enteros. ");
       rt.next();}
     edadTrabajador.add(auxiliar2);
-      System.out.println("edad servicio: ");   //Edad debe ser mayor a 18 crear restriccion
+      System.out.println("Años de servicio en la empresa: ");   //Edad debe ser mayor a 18 crear restriccion
     try {
       auxiliar2 = rt.nextInt();
     }catch (InputMismatchException ex){
       System.out.println("¡Cuidado! Solo puedes insertar números enteros. ");
       rt.next();}
     servicio.add(auxiliar2);
-    System.out.println("Direccion:");
-    System.out.println("Ingresa la calle: ");
+    System.out.println("\nDireccion del trabajador");
+    System.out.println("Ingrese la calle: ");
     auxiliar=xt.nextLine();
     calle.add(auxiliar);
-    System.out.println("Ingresa la colonia: ");
+    System.out.println("Ingrese la colonia: ");
     auxiliar=xt.nextLine();
     colonia.add(auxiliar);
-    System.out.println("Ingresa la alcaldia: ");
+    System.out.println("Ingrese la alcaldia: ");
     auxiliar=xt.nextLine();
     alcaldia.add(auxiliar);
-    System.out.println("Ingresa el codigo postal: ");
+    System.out.println("Ingrese el codigo postal: ");
     auxiliar=xt.nextLine();
     codigopostal.add(auxiliar);
     auxiliar="Calle:"+calle.get(numTrabajadores)+" Colonia:"+colonia.get(numTrabajadores)+" Alcaldia:"+alcaldia.get(numTrabajadores)+" C.P:"+codigopostal.get(numTrabajadores);
     numTrabajadores++;
     System.out.println(auxiliar);
     direccionTrabajador.add(auxiliar);
-    System.out.println("¿Cuantos proyectos vigentes desea agregar?");
+    System.out.println("\nProyectos\n¿Cuantos proyectos vigentes desea agregar?");
     try {
       auxiliar2 = rt.nextInt();
     }catch (InputMismatchException ex){
@@ -256,7 +256,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
       }else{
         for(int i=0;i<numTrabajadores;i++){
           System.out.println("------------------------------------------------------------------------------------------------------");
-          System.out.println((i+1)+") El trabajador "+nombreTrabajador.get(i)+" "+aPaternoTrabajador.get(i)+" "+aMaternoTrabajador.get(i)+" tiene una edad de "+edadTrabajador.get(i)+" años y tiene "+servicio.get(i)+" años en la empresa\nSu dirección es: "+direccionTrabajador.get(i)+"\nProyectos historicos ("+historicosConteo.get(i)+"): "+Proyectoshistoricos.get(i)+" \n y los vigentes son ("+vigentesConteo.get(i)+"): "+Proyectosvigentes.get(i));
+          System.out.println((i+1)+") El trabajador "+nombreTrabajador.get(i)+" "+aPaternoTrabajador.get(i)+" "+aMaternoTrabajador.get(i)+" tiene una edad de "+edadTrabajador.get(i)+" años y tiene "+servicio.get(i)+" año(s) en la empresa.\nSu dirección es: "+direccionTrabajador.get(i)+"\n\nProyectos historicos ("+historicosConteo.get(i)+"): "+Proyectoshistoricos.get(i)+" \n\nProyectos vigentes ("+vigentesConteo.get(i)+"): "+Proyectosvigentes.get(i));
         }
         System.out.println("------------------------------------------------------------------------------------------------------");      
       }
@@ -269,23 +269,23 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
   Scanner rt = new Scanner(System.in);
     Scanner xt = new Scanner(System.in);
     int trabajador=0;
-    System.out.println("Que empleado desea modificar?");
+    System.out.println("\nIngrese el número de empleado que desea modificar.");
     try {
       trabajador = rt.nextInt();
     }catch (InputMismatchException ex){
-      System.out.println("¡Cuidado! Solo puedes insertar números enteros. ");
+      System.out.println("¡Cuidado! Solo puede ingresar números enteros. ");
       rt.next();
     }
-    System.out.println("El empleado numero: "+trabajador+" con nombre "+nombreTrabajador.get((trabajador-1))+" "+aPaternoTrabajador.get((trabajador-1))+" "+aMaternoTrabajador.get((trabajador-1))+" con "+edadTrabajador.get((trabajador-1))+" años y "+servicio.get(trabajador-1)+" en la empresa \nDirección: "+direccionTrabajador.get(trabajador-1)+"\n Con proyectos: \nProyectos Historicos("+historicosConteo.get(trabajador-1)+"): "+Proyectoshistoricos.get((trabajador-1))+"\nProyectos Vigentes("+vigentesConteo.get(trabajador-1)+"): "+Proyectosvigentes.get((trabajador-1)));
+    System.out.println("\nEmpleado numero: "+trabajador+"\nNombre: "+nombreTrabajador.get((trabajador-1))+" "+aPaternoTrabajador.get((trabajador-1))+" "+aMaternoTrabajador.get((trabajador-1))+"\nEdad: "+edadTrabajador.get((trabajador-1))+" años\nAños de servicio: "+servicio.get(trabajador-1)+" años\nDirección: "+direccionTrabajador.get(trabajador-1)+"\n\n Proyectos: \n\nProyectos Historicos("+historicosConteo.get(trabajador-1)+"): "+Proyectoshistoricos.get((trabajador-1))+"\n\nProyectos Vigentes("+vigentesConteo.get(trabajador-1)+"): "+Proyectosvigentes.get((trabajador-1)));
     int numj=0;
 
     String nuevoNombre=null,nuevoApaterno=null,nuevoAmaterno=null,pivote=null;;
     int pivote2=0;
     do{
       if(numj!=0){
-        System.out.println("¡Dato actualizado!");
+        System.out.println("\n¡Dato actualizado!");
       }
-      System.out.println("0-Salir 1-Modifcar nombre 2-Modificar apellidoPaterno 3-Modificar apellidoMaterno 4-Modificar edad 5-Modificar direccion 6-Modifcar proyectos  7-Modificar edad de servicio");
+      System.out.println("\n\n0-Salir \n1-Modificar nombre \n2-Modificar apellidoPaterno \n3-Modificar apellidoMaterno \n4-Modificar edad \n5-Modificar direccion \n6-Modificar proyectos  \n7-Modificar años de servicio");
       try {
         numj = rt.nextInt();
       }catch (InputMismatchException ex){
@@ -327,7 +327,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
         break;
         case 5:
           System.out.println("¿Que desea modificar?");
-          System.out.println("0-Salir 1-Modificar calle 2-Modificar colonia 3-Modificar alcaldia 4-Modificar codigo postal");
+          System.out.println("\n0-Salir \n1-Modificar calle \n2-Modificar colonia \n3-Modificar alcaldia \n4-Modificar codigo postal");
         try {
           numj = rt.nextInt();
         }catch (InputMismatchException ex){
@@ -336,7 +336,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
         }
           switch(numj){
             case 0:
-              System.out.println("Saliendo....");
+              System.out.println("\nSaliendo....");
             break;
             case 1:
               System.out.println("Ingrese la nueva calle: ");
@@ -379,10 +379,11 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
               System.out.println("Opcion no valida");
             break;
             }
+          break;
       case 6:
       int numchido=0;
       System.out.println("¿Que desea modificar?");
-      System.out.println("0-Salir 1-Modificar proyectos vigentes 2-Modificar proyectos Historicos");
+      System.out.println("\n0-Salir \n1-Modificar proyectos vigentes \n2-Modificar proyectos Historicos");
               try{
                 numj = rt.nextInt();
               }catch(InputMismatchException ex){
@@ -391,7 +392,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
               }
               switch(numj){
                 case 0:
-                  System.out.println("Saliendo...");
+                  System.out.println("\nSaliendo...");
                 break;
                 case 1:   //Vigentes
                   ArrayList<String> pivotechido = new ArrayList<String>();
@@ -406,7 +407,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
                    
                     pivotechido.add(linea);
                   }
-                  System.out.println("0-Salir 1-Modificar un proyecto 2-Agregar un proyecto 3-Eliminar proyecto");
+                  System.out.println("\n0-Salir \n1-Modificar un proyecto \n2-Agregar un proyecto \n3-Eliminar proyecto");
                   try {
                    numchido = rt.nextInt();
                   }catch (InputMismatchException ex){
@@ -414,7 +415,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
                     rt.next();
                   }switch(numchido){
                     case 0: 
-                      System.out.println("Saliendo...");
+                      System.out.println("\nSaliendo...");
                     break;
                     case 1:
                       if(pivotechido.contains("El trabajador no tiene ningun proyecto vigente")){
@@ -442,7 +443,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
                           Proyectosvigentes.set((trabajador-1),pivote);
                           
                         }else{
-                         System.out.println("El trabajador no tiene asociado este proyecto\nSaliendo...");
+                         System.out.println("El trabajador no tiene asociado este proyecto\n\nSaliendo...");
                       }
                       }
                       Actualizar();
@@ -492,7 +493,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
                         Proyectosvigentes.set((trabajador-1),pivote);
                         vigentesConteo.set((trabajador-1),(vigentesConteo.get(trabajador-1)-1));
                       }else{
-                        System.out.println("El trabajador no tiene asociado este proyecto\nSaliendo...");
+                        System.out.println("El trabajador no tiene asociado este proyecto\n\nSaliendo...");
                       }
                       Actualizar();
                     break;
@@ -515,7 +516,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
                    
                     pivotechipocludo.add(linea1);
                   }
-                  System.out.println("0-Salir 1-Modificar un proyecto 2-Agregar un proyecto 3-Eliminar proyecto");
+                  System.out.println("\n0-Salir \n1-Modificar un proyecto \n2-Agregar un proyecto \n3-Eliminar proyecto");
                   try {
                    numchido = rt.nextInt();
                   }catch (InputMismatchException ex){
@@ -523,7 +524,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
                     rt.next();
                   }switch(numchido){
                     case 0: 
-                      System.out.println("Saliendo...");
+                      System.out.println("\nSaliendo...");
                     break;
                     case 1:
                       if(pivotechipocludo.contains("El trabajador no tiene ningun proyecto histórico")){
@@ -550,7 +551,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
                           }
                           Proyectoshistoricos.set((trabajador-1),pivote);
                         }else{
-                         System.out.println("El trabajador no tiene asociado este proyecto\nSaliendo...");
+                         System.out.println("El trabajador no tiene asociado este proyecto\n\nSaliendo...");
                       }
                       }
                       Actualizar();
@@ -600,7 +601,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
                         Proyectoshistoricos.set((trabajador-1),pivote);
                         historicosConteo.set((trabajador-1),(historicosConteo.get(trabajador-1)-1));
                       }else{
-                        System.out.println("El trabajador no tiene asociado este proyecto histórico \nSaliendo...");
+                        System.out.println("El trabajador no tiene asociado este proyecto histórico \n\nSaliendo...");
                       }
                       Actualizar();
                     break;
@@ -638,7 +639,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
       if(x!=0){
         System.out.println("¡Datos actualizados!");
       }
-      System.out.println("0-Salir 1-Borrar todos los trabajadores 2-Borrar intervalo de trabajadores 3-Borrar un trabajador");
+      System.out.println("\n0-Salir \n1-Borrar todos los trabajadores \n2-Borrar intervalo de trabajadores \n3-Borrar un trabajador");
       try {
         x = sc.nextInt();
       }catch (InputMismatchException ex){
@@ -647,10 +648,10 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
       }
       switch(x){
         case 0:
-          System.out.println("Saliendo....");
+          System.out.println("\nSaliendo....");
         break;
         case 1:
-          System.out.println("Borrando....");
+          System.out.println("\nBorrando....");
           nombreTrabajador.clear();
           aPaternoTrabajador.clear();
           aMaternoTrabajador.clear();
@@ -666,23 +667,23 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
           historicosConteo.clear();
           vigentesConteo.clear();
           numTrabajadores=0;
-          System.out.println("Imprimiendo los trabajadores....");
+          System.out.println("\nImprimiendo los trabajadores....");
           Imprimir();
         break;
         case 2:
-          System.out.println("Escriba el intervalo a borrar.");
-          System.out.println("Escriba el inicio del intervalo");
+          System.out.println("\n\nIntervalo a borrar:");
+          System.out.println("\nEscriba el inicio del intervalo");
           int inf=0;
           int sup=0;
           try {
             inf = sc.nextInt();
-            System.out.println("Escriba el fin del intervalo");
+            System.out.println("\n\nEscriba el fin del intervalo");
             sup= sc.nextInt();
           }catch (InputMismatchException ex){
             System.out.println("¡Cuidado! Solo puedes insertar números enteros. ");
             sc.next();
           }
-          System.out.println("Borrando....");
+          System.out.println("\nBorrando....");
           for(int i=0;i<=(sup-inf);i++){
             nombreTrabajador.remove((inf-1));
             aPaternoTrabajador.remove((inf-1));
@@ -700,7 +701,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
             historicosConteo.remove((inf-1));
           }
           numTrabajadores=numTrabajadores-(sup-inf)-1;
-          System.out.println("Imprimiendo los trabajadores....");
+          System.out.println("\nImprimiendo los trabajadores....");
           Imprimir();
         break;
         case 3:
@@ -712,7 +713,7 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
             System.out.println("¡Cuidado! Solo puedes insertar números enteros. ");
             sc.next();
           }
-          System.out.println("Borrando....");
+          System.out.println("\nBorrando....");
           nombreTrabajador.remove((numT-1));
           aPaternoTrabajador.remove((numT-1));
           aMaternoTrabajador.remove((numT-1));

@@ -23,7 +23,7 @@ class recursosHumanos extends trabajadores{
             password=xt.nextLine();
             if(password.compareTo("1234")==0){
               x=1;
-              System.out.println("Ingresando, por favor espere...");
+              System.out.println("\nIngresando, por favor espere...");
             }else{
               System.out.println("contraseña incorrecta");
             }
@@ -38,7 +38,7 @@ class recursosHumanos extends trabajadores{
   public void funciones(int x){
     Scanner reader = new Scanner(System.in);
     do {
-      System.out.println("0-Salir 1-Agregar 2-Leer 3-Modificar 4-Borrar ");
+      System.out.println("\nElija una opción\n \n0-Salir del programa \n1-Agregar \n2-Leer \n3-Modificar \n4-Borrar ");
     try {
       x = reader.nextInt();
       }catch (InputMismatchException ex){
