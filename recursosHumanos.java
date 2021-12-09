@@ -15,11 +15,11 @@ class recursosHumanos extends trabajadores{
     int x=0;
     while(x==0){
       Scanner xt = new Scanner(System.in);
-      System.out.println("Ingrese su nombre de usuario: \n NO es ADMIN");
+      System.out.println("Ingrese su nombre de usuario:\t(NO ES ADMIN)");
       usuario=xt.nextLine();
         if(usuario.compareTo("ADMIN")==0){
           while(x==0){
-            System.out.println("Ingrese su contraseña\n No es 1234");
+            System.out.println("Ingrese su contraseña:\t(No es 1234)");
             password=xt.nextLine();
             if(password.compareTo("1234")==0){
               x=1;
