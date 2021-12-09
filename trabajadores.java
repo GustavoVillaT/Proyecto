@@ -31,7 +31,8 @@ public class trabajadores{
   private ArrayList<String> proyectoshist = new ArrayList<String>();
   private ArrayList<String> proyectosvig = new ArrayList<String>();
     private ArrayList<Integer> servicio = new ArrayList<Integer>();
-
+    private ArrayList<Integer> historicosConteo = new ArrayList<Integer>();
+private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
   //constructor
   public trabajadores(){}
 
@@ -750,8 +751,8 @@ public class trabajadores{
     }
     Min = 0;
     Max = 39;
-    int maxProye=1;
-    int minProye=3;
+    int maxProye=39;
+    int minProye=1;
 
     j= (int)Math.floor(Math.random() * (maxProye - minProye + 1)) + minProye;
        numRepetidos.clear();
@@ -775,6 +776,7 @@ public class trabajadores{
     String aux=null,aux2=null;
     Registros();
     for(int i=0;i<numTrabajadores;i++){
+      historicosConteo.add(proyectoshist.size());
       for(int j=0;j<proyectoshist.size();j++){
         aux=proyectoshist.get(j);
         if(aux2==null){
@@ -789,6 +791,7 @@ public class trabajadores{
     }
     Registros();
     for(int i=0;i<numTrabajadores;i++){
+      vigentesConteo.add(proyectosvig.size());
       for(int j=0;j<proyectosvig.size();j++){
         aux=proyectosvig.get(j);
         if(aux2==null){
