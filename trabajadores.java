@@ -282,7 +282,7 @@ public class trabajadores{
       if(numj!=0){
         System.out.println("¡Dato actualizado!");
       }
-      System.out.println("0-Salir 1-Modifcar nombre 2-Modificar apellidoPaterno 3-Modificar apellidoMaterno 4-Modificar edad 5-Modificar direccion 6-Modifcar proyectos");
+      System.out.println("0-Salir 1-Modifcar nombre 2-Modificar apellidoPaterno 3-Modificar apellidoMaterno 4-Modificar edad 5-Modificar direccion 6-Modifcar proyectos  7-Modificar edad de servicio");
       try {
         numj = rt.nextInt();
       }catch (InputMismatchException ex){
@@ -608,6 +608,17 @@ public class trabajadores{
               }
 
           
+        break;
+        case 7:
+        System.out.println("Ingrese la nueva edad de servicio");
+        try {
+          pivote2 = rt.nextInt();
+        }catch (InputMismatchException ex){
+          System.out.println("¡Cuidado! Solo puedes insertar números enteros. ");
+          rt.next();
+        }
+          servicio.set((trabajador-1),pivote2);
+          Actualizar();
         break;
       }
     }while(numj!=0);   
