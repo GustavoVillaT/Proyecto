@@ -766,11 +766,13 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
     Max = 39;
     int maxProye=39;
     int minProye=0;
-    maxProye=servicio.get(contadorg);
+   maxProye=servicio.get(contadorg);
     if(maxProye>=3){
-
-      minProye=(int)(5*maxProye)/7;
-        j=(int)Math.floor(Math.random() * (maxProye - minProye+1)) + minProye;
+      minProye=(int)(3*maxProye)/5;
+      if(maxProye>57){
+        maxProye=(int)(13*maxProye)/8;
+      }
+      j=(int)Math.floor(Math.random() * (maxProye - minProye+1)) + minProye;
     }else{
     j= (int)Math.floor(Math.random() * (maxProye - minProye+1)) + minProye;
     } 
