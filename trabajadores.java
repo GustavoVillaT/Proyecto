@@ -12,6 +12,9 @@ import java.util.StringTokenizer;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 import java.lang.IndexOutOfBoundsException;
+/**
+* @author Brigada 4
+*/
 public class trabajadores{
   private int contadorg=0;
   private int numTrabajadores=300;//numero de trabajadores
@@ -33,7 +36,9 @@ public class trabajadores{
     private ArrayList<Integer> servicio = new ArrayList<Integer>();
     private ArrayList<Integer> historicosConteo = new ArrayList<Integer>();
 private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
-  //constructor
+  /**
+  *Constructor
+  */
   public trabajadores(){}
 
   //metodos

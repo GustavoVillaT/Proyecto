@@ -1,12 +1,20 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
+/**
+* @author Brigada 4
+*/
 class recursosHumanos extends trabajadores{
   
-
-  
+/*
+  *Constructor
+  */
   public recursosHumanos(){}
 
 
+ 
+ /*Metodo ingreso
+  * @return x Retorna un numero dependiendo si el usuario y la  contraseña son correctos
+  */  
 
 
   public int ingreso(){
@@ -34,6 +42,10 @@ class recursosHumanos extends trabajadores{
       }
     return x;
   }
+  /* Metodo funciones
+  * 
+  *@ param x
+  */
   
   public void funciones(int x){
     Scanner reader = new Scanner(System.in);
