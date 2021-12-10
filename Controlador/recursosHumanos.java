@@ -1,5 +1,8 @@
+package Controlador;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import Modelo.trabajadores;
+
 /**
 * @author Brigada 4
 */
@@ -44,7 +47,7 @@ class recursosHumanos extends trabajadores{
   }
   /* Metodo funciones
   * 
-  *@ param x
+  *@ param x es el entero que se utiliza para manejar el menu
   */
   
   public void funciones(int x){

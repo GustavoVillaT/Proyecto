@@ -1,3 +1,4 @@
+package Modelo;
 import java.util.ArrayList;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -41,7 +42,10 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
   */
   public trabajadores(){}
 
-  //metodos
+   /*Metodo generadorRegistros
+  * Este metodo sirve para agregar a cada trabajador
+  *nombre completo,edad,direccion y tiempo en la empresa
+  */  
   public void generadorRegistros(){
     String[] nombresAleatorios = {"Marisol", "Rodrigo", "Anastasio", "Annie","Jose","Marco","Pedro","Luis","Marta","Frida","Francisco", "Ramon","Lorena","Matias","Jordan","Sergio","Saul","Samantha","Miguel","Martin","Antonela","Federico","Angel","Clara","Daniela", "Jesica", "Enrique", "Mateo", "Leonardo", "Rafael","Adrián", "Sofia","Luis","Enrique","Bastian","Sebastian","Gabriel","Alejandro", "Nepamuceno", "Roque", "Grasiela","Kytzia"};
     String[] apellidosAleatorios={"Villa","Rodríguez", "Martínez", "Hernández", "López", "González", "Pérez","Sánchez", "Ramírez", "Torres", "Flores", "Rivera","Gómez", "Díaz", "Palacios", "Cruz", "Morales", "Ortiz", "Gutiérrez","Smith","Johnson", "Williams", "Morrissey", "Hazel", "West", "Yañes", "Rourke", "Joyce", "Brown", "Jones", "Miller", "Davis", "Byrne", "Wilkins", "Michaels", "Anderson", "O'Brien", "Yorke", "Greenwood", "Jackson", "Quintero", "Almazo", "Escañuela", "Vázquez", "Varela", "Skywalker", "García", "Rodríguez", "Wilson", "Spilberg", "Reyes","Sumner", "Curtis", "Rosillo", "Morales", "Mao", "Xu", "Rickles", "Reyes"};
@@ -150,6 +154,9 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
       i++;
     }*/
   }
+   /*Metodo Actualizar
+  * Este metodo sirve para actualizar los trabajadores
+  */  
   public void Actualizar(){
     try{
       BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
@@ -164,7 +171,9 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
     System.out.println(ex.getMessage());
     }
   }
-  
+   /*Metodo Agregar
+  * este metodo sirve para agregar más trabajadores a nuestra base
+  */  
 
   public void Agregar(){
     Scanner rt = new Scanner(System.in);
@@ -254,6 +263,9 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
     Actualizar();
     System.out.println("¡Datos actualizados!");
   }
+   /*Metodo Imprimir
+  * este metedo sirve para imprimir todos los trabajadores
+  */  
   public void Imprimir(){
     try{
       if(numTrabajadores==0){
@@ -270,6 +282,9 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
       System.out.println("No hay un trabajador registrado en ese lugar");
     }
   }
+   /*Metodo Modificar
+  * este metodo nos sirve para modificar la lista de los trabajadores
+  */  
   public void Modificar(){
   Scanner rt = new Scanner(System.in);
     Scanner xt = new Scanner(System.in);
@@ -637,6 +652,9 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
       }
     }while(numj!=0);   
   }
+   /*Metodo Borrar
+  * este metodo sirve para poder borrar uu trabajador de la lista
+  */  
   public void Borrar(){
  int x=0;
     Scanner sc = new Scanner(System.in);
@@ -742,7 +760,9 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
       }
     } while (x!=0);   
   }
-  //////////////////////RegistrosProyectos//////////////////////////
+   /*Metodo Registros
+  * este metodo nos sirve para obtener los proyectos vigentes y historicos con la cantidad de lo años de servicio
+  */  
   public void Registros(){
     proyectoshist.clear();
     proyectosvig.clear();
@@ -799,6 +819,9 @@ private ArrayList<Integer> vigentesConteo = new ArrayList<Integer>();
       }
     }  
   }
+   /*Metodo asignarProyectos
+  * nos sirve para asignar los proyectos aleatorios tanto como vigentes como historicos a los trabajadores
+  */  
   public void asignarProyectos(){
     String aux=null,aux2=null;
     

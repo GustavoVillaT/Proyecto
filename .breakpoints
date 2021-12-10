@@ -1,5 +1,29 @@
 {
   "files": {
+    "Main.java": [
+      {
+        "id": "0bfead1d-9ca4-41fc-b46a-c7e0db0f5a3c",
+        "line": 16,
+        "version": 3060,
+        "index": 306
+      }
+    ],
+    "Modelo/trabajadores.class": [
+      {
+        "id": "2eb07367-2b23-4ebd-b2f1-390b69f34c8a",
+        "line": 3,
+        "version": 1,
+        "index": 26
+      }
+    ],
+    "Modelo/trabajadores.java": [
+      {
+        "id": "4c2d79c3-de12-4435-a980-fb51be4f9138",
+        "line": 764,
+        "version": 1419,
+        "index": 33136
+      }
+    ],
     "RegistrosProyectos.java": [
       {
         "id": "ffc4d920-c623-4c57-9009-448b63489be9",
@@ -28,7 +52,7 @@
       {
         "id": "903a4e29-48ec-4aa2-ba51-cdd3fe5ad843",
         "line": 1,
-        "version": 15074,
+        "version": 15451,
         "index": 0
       }
     ]
